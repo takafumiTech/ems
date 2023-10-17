@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
 }
+
 .side-bar {
   background-color: #253141;
   width: 300px;
@@ -21,6 +22,7 @@
   color: #FAFAFA;
   text-decoration: none;
 }
+
 .input-daily-delivery a {
   font-size: 10px;
   border: 1px solid lightblue;
@@ -28,6 +30,7 @@
   color: deepskyblue;
   text-decoration: none;
 }
+
 .menu {
   background-color: #2F3E51;
   height: calc(100vh - 100px);
@@ -43,19 +46,42 @@
   text-decoration: none;
   color: white;
 }
+
 .main-bar {
   background-color: #FFFFFF;
   width: calc(100vw - 300px);
 }
+
 .main-header {
   height: 100px;
   padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
 }
+
+.header-title {
+  color: #333;
+  font-size: 24px;
+  margin-top: 36px;
+}
+
+.header-button {
+  margin-top: 40px;
+}
+
+.header-button a {
+  text-decoration: none;
+  border: 1px solid darkred;
+  color: darkred;
+  padding: 20px;
+}
+
 .managements {
   background-color: #FAFAFA;
   height: calc(100vh - 100px - 90px);
   padding: 46px 40px 0;
 }
+
 .form {
   background-color: #DDDDDD;
   height: 90px;
