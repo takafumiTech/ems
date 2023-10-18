@@ -10,10 +10,18 @@
       <%= form_with model: current_user, local: true do |f|%>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :name%>
+            <%= f.label :center_code%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :name, autofocus: true%>
+            <%= f.text_field :center_code, autofocus: true%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :center_name%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :center_name%>
           </div>
         </div>
         <div class='field'>
@@ -22,6 +30,22 @@
           </div>
           <div class='field-input'>
             <%= f.email_field :email%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :yearly_delivery%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :yearly_delivery%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :consumption_type_id%>
+          </div>
+          <div class='field-input'>
+            <%= f.collection_select(:consumption_type_id, ConsumptionType.all, :id, :name, {}, {class:"consumptiontype-select"})%>
           </div>
         </div>
         <div class='actions'>
