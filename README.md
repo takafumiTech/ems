@@ -4,11 +4,12 @@
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| center_code         | text       | Not null            　　　　　　 |
-| center_name         | text       | Not null                       |
-| password            | text       | Not null                       |
-| delivery            | integer    | Not null             　　　　　　|
-| consumption_type_id | references | Not null                       |
+| center_code         | string     | Not null            　　　　　　 |
+| center_name         | string     | Not null                       |
+| email               | string     | Not null                       |
+| password            | string     | Not null                       |
+| yearly_delivery     | integer    | Not null             　　　　　　|
+| consumption_type_id | integer    | Not null                       |
 
 ### Association
 - has_one    :standard_value
