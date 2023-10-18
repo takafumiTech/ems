@@ -1,0 +1,57 @@
+<div class='account-page' id='account-page'>
+  <div class='account-page__inner clearfix'>
+    <div class='account-page__inner--left account-page__header'>
+      <h2>Edit Infomation</h2>
+      <h5>拠点情報の編集</h5>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
+      <%= link_to "メインページに戻る", :back, class: 'btn'%>
+    </div>
+    <div class='account-page__inner--right user-form'>
+      <%= form_with model: current_user, local: true do |f|%>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :center_code%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :center_code, autofocus: true, placeholder: "半角数字4桁" %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :center_name%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :center_name%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :email%>
+          </div>
+          <div class='field-input'>
+            <%= f.email_field :email%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :yearly_delivery%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :yearly_delivery%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :consumption_type_id%>
+          </div>
+          <div class='field-input'>
+            <%= f.collection_select(:consumption_type_id, ConsumptionType.all, :id, :name, {}, {class:"consumptiontype-select"})%>
+          </div>
+        </div>
+        <div class='actions'>
+          <%= f.submit "Update", class: 'btn'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

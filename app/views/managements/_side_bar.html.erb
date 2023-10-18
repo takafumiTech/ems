@@ -1,6 +1,6 @@
 <div class="side-bar-header">
   <div class="header-name">
-    <a href="#">拠点名</a>
+    <%= link_to current_user.center_name, edit_user_path(current_user) %>
   </div>
   <div class="input-daily-delivery">
     <a href="#">件数入力</a>
