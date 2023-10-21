@@ -1,0 +1,66 @@
+<div class='input-page' id='input-page'>
+  <div class='input-page__inner clearfix'>
+    <div class='input-page__inner--left input-page__header'>
+      <h2>Daily Data</h2>
+      <h5>確認したい日付を選択してください</h5>
+      <%= form_tag(search_daily_counts_path, method: :post) do %>
+        <div class='search'>
+          <div class='search-input'>
+            <input type="date" name="daily_count[date]">
+          </div>
+          <div class='search-submit'>
+            <input type="submit" value="確認する" >
+          </div>
+        </div>
+      <% end %>
+      <div>
+        <%= link_to "メインページに戻る", root_path, class: 'btn'%>
+      </div>
+    </div>
+    <div class='input-page__inner--right user-form'>
+      <% unless @daily_count.empty? %>
+        <%= @daily_count.each do |data|%>
+          <div class='data'>
+            <div class='index-label'>
+              Date
+            </div>
+            <div class='index-input'>
+              <%= data.date%>
+            </div>
+          </div>
+          <div class='data'>
+            <div class='index-label'>
+              Delivery_count
+            </div>
+            <div class='index-input'>
+              <%= data.delivery_count%>
+            </div>
+          </div>
+          <div class='data'>
+            <div class='index-label'>
+              Repair_count
+            </div>
+            <div class='index-input'>
+              <%= data.repair_count%>
+            </div>
+          </div>
+          <div class='data'>
+            <div class='index-label'>
+              Exchange_count
+            </div>
+            <div class='index-input'>
+              <%= data.exchange_count%>
+            </div>
+          </div>
+          <div class="edit">
+            <%= link_to "編集する", edit_daily_count_path(data.id)%>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="empty">
+          <p>記録されたデータはありません</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

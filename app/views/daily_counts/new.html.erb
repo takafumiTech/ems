@@ -1,0 +1,48 @@
+<div class='input-page' id='input-page'>
+  <div class='input-page__inner clearfix'>
+    <div class='input-page__inner--left input-page__header'>
+      <h2>Input Daily Data</h2>
+      <h5>今日の件数を入力してください</h5>
+      <%= link_to "メインページに戻る", :back, class: 'btn'%>
+    </div>
+    <div class='input-page__inner--right user-form'>
+      <%= form_with model: @daily_count, local: true do |f|%>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :date%>
+          </div>
+          <div class='field-input'>
+            <%= f.date_field :date, autofocus: true%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :delivery_count%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :delivery_count%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :repair_count%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :repair_count%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :exchange_count%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :exchange_count%>
+          </div>
+        </div>
+        <div class='actions'>
+          <%= f.submit "submit", class: 'btn'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

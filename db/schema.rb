@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_18_002334) do
+ActiveRecord::Schema.define(version: 2023_10_21_045041) do
+
+  create_table "daily_counts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "delivery_count", null: false
+    t.integer "repair_count", null: false
+    t.integer "exchange_count", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_daily_counts_on_user_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "item_code", null: false
+    t.string "item_name", null: false
+    t.integer "unit", null: false
+    t.integer "lead_time", null: false
+    t.integer "price", null: false
+    t.integer "current_amount", null: false
+    t.integer "spare", null: false
+    t.integer "consumption_by_delivery", null: false
+    t.integer "consumption_by_repair", null: false
+    t.integer "consumption_by_exchange", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
 
   create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -36,4 +64,5 @@ ActiveRecord::Schema.define(version: 2023_10_18_002334) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "daily_counts", "users"
 end

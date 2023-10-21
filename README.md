@@ -13,12 +13,12 @@
 
 ### Association
 - has_many   :daily_counts
-- has_many   :items
+- has_many   :managements
 - has_many   :tweets
 - has_many   :comments
 
 
-## itemsテーブル
+## managementsテーブル
 
 | Column                  | Type       | Options               |
 | ----------------------- | ---------- | --------------------- |
@@ -47,11 +47,9 @@
 | repair_count      | integer    | Not null                       |
 | exchange_count    | integer    | Not null                       |
 | user              | references | Not null, foreign_key          |
-| item              | references | Not null, foreign_key          |
 
 ### Association
 - belongs_to :user
-- belongs_to :item
 
 
 ## tweetsテーブル
