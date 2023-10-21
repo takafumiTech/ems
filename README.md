@@ -4,64 +4,54 @@
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| center_code         | string     | Not null            　　　　　　 |
+| center_code         | string     | Not null                       |
 | center_name         | string     | Not null                       |
 | email               | string     | Not null                       |
 | password            | string     | Not null                       |
-| yearly_delivery     | integer    | Not null             　　　　　　|
+| yearly_delivery     | integer    | Not null                       |
 | consumption_type_id | integer    | Not null                       |
 
 ### Association
-- has_one    :standard_value
-- has_many   :daily_deliveries
+- has_many   :daily_counts
 - has_many   :items
 - has_many   :tweets
 - has_many   :comments
 
 
-## standard_valuesテーブル
-
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| item_code         | text       | Not null            　　　　　　 |
-| item_name         | text       | Not null                       |
-| consumption       | integer    | Not null                       |
-| consumption_dc    | integer    | Not null             　　　　　　|
-| consumption_csc   | integer    | Not null                       |
-| user              | references | Not null                       |
-
-### Association
-- belongs_to :user
-
-
-## daily_deliveriesテーブル
-
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| item_code         | text       | Not null            　　　　　　 |
-| user              | references | Not null                       |
-
-### Association
-- belongs_to :user
-
-
 ## itemsテーブル
 
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| item_code         | text       | Not null            　　　　　　 |
-| item_name         | text       | Not null                       |
-| unit              | integer    | Not null                       |
-| lead time         | integer    | Not null             　　　　　　|
-| price             | integer    | Not null                       |
-| current_amount    | integer    | Not null                       |
-| score             | integer    |                                |
-| user              | references | Not null             　　　　　　|
-| daily_deliveries  | references | Not null                       |
+| Column                  | Type       | Options               |
+| ----------------------- | ---------- | --------------------- |
+| item_code               | string     | Not null              |
+| item_name               | string     | Not null              |
+| unit                    | integer    | Not null              |
+| lead_time               | integer    | Not null              |
+| price                   | integer    | Not null              |
+| current_amount          | integer    | Not null              |
+| spare                   | integer    |                       |
+| consumption_by_delivery | integer    | Not null              |
+| consumption_by_repair   | integer    | Not null              |
+| consumption_by_exchange | integer    | Not null              |
+| user                    | references | Not null, foreign_key |
 
 ### Association
-- belongs_to :users
-- belongs_to :daily_deliveries
+- belongs_to :user
+
+
+## daily_countsテーブル
+
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| date              | date       | Not null                       |
+| delivery_count    | integer    | Not null                       |
+| repair_count      | integer    | Not null                       |
+| exchange_count    | integer    | Not null                       |
+| user              | references | Not null, foreign_key          |
+| item              | references | Not null, foreign_key          |
+
+### Association
+- belongs_to :user
+- belongs_to :item
 
 
 ## tweetsテーブル
@@ -71,7 +61,7 @@
 | item_name         | text       | Not null                       |
 | amount            | integer    | Not null                       |
 | deadline          | integer    | Not null                       |
-| user              | references | Not null             　　　　　　|
+| user              | references | Not null                       |
 
 ### Association
 - belongs_to :users
@@ -82,9 +72,9 @@
 
 | Column     | Type       | Options                        |
 | ------     | ---------- | ------------------------------ |
-| content    | text       | Not null            　　　　　　 |
-| tweet      | references | Not null, 外部キー            　 |
-| user       | references | Not null, 外部キー　　　　　　　   |
+| content    | text       | Not null                       |
+| tweet      | references | Not null, foreign_key          |
+| user       | references | Not null, foreign_key          |
 
 ### Association
 - belongs_to :users
