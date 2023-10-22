@@ -3,14 +3,14 @@
     <%= link_to current_user.center_name, edit_user_path(current_user) %>
   </div>
   <div class="input-daily-delivery">
-    <a href="#">件数入力</a>
+    <%= link_to "件数入力", new_daily_count_path%>
   </div>
 </div>
 
 <div class="menu">
   <div class="order">
     <div class="order-name">
-      <a href="#">機能①</a>
+      <%= link_to "件数確認/編集", daily_counts_path%>
     </div>
   </div>
   <div class="order">
