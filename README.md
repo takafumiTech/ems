@@ -22,16 +22,14 @@
 
 | Column                  | Type       | Options               |
 | ----------------------- | ---------- | --------------------- |
-| item_code               | string     | Not null              |
 | item_name               | string     | Not null              |
 | unit                    | integer    | Not null              |
 | lead_time               | integer    | Not null              |
-| price                   | integer    | Not null              |
 | current_amount          | integer    | Not null              |
 | spare                   | integer    | Not null              |
-| consumption_by_delivery | integer    | Not null              |
-| consumption_by_repair   | integer    | Not null              |
-| consumption_by_exchange | integer    | Not null              |
+| consumption_by_delivery | float      | Not null              |
+| consumption_by_repair   | float      | Not null              |
+| consumption_by_exchange | float      | Not null              |
 | user                    | references | Not null, foreign_key |
 
 ### Association

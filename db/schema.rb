@@ -24,16 +24,14 @@ ActiveRecord::Schema.define(version: 2023_10_22_125944) do
   end
 
   create_table "managements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "item_code", null: false
     t.string "item_name", null: false
     t.integer "unit", null: false
     t.integer "lead_time", null: false
-    t.integer "price", null: false
     t.integer "current_amount", null: false
     t.integer "spare", null: false
-    t.integer "consumption_by_delivery", null: false
-    t.integer "consumption_by_repair", null: false
-    t.integer "consumption_by_exchange", null: false
+    t.float "consumption_by_delivery", null: false
+    t.float "consumption_by_repair", null: false
+    t.float "consumption_by_exchange", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
