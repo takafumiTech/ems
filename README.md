@@ -28,7 +28,7 @@
 | lead_time               | integer    | Not null              |
 | price                   | integer    | Not null              |
 | current_amount          | integer    | Not null              |
-| spare                   | integer    |                       |
+| spare                   | integer    | Not null              |
 | consumption_by_delivery | integer    | Not null              |
 | consumption_by_repair   | integer    | Not null              |
 | consumption_by_exchange | integer    | Not null              |
