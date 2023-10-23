@@ -3,7 +3,7 @@
     <div class='input-page__inner--left input-page__header'>
       <h2>Input Daily Data</h2>
       <h5>今日の件数を入力してください</h5>
-      <%= link_to "メインページに戻る", :root_path, class: 'btn'%>
+      <%= link_to "メインページに戻る", root_path, class: 'btn'%>
     </div>
     <div class='input-page__inner--right user-form'>
       <%= form_with model: @daily_count, local: true do |f|%>
