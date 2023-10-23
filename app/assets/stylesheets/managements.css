@@ -1,3 +1,5 @@
+/* サイドバーのCSS */
+
 .wrapper {
   display: flex;
 }
@@ -47,6 +49,9 @@
   color: white;
 }
 
+/* サイドバーのCSS */
+/* メインヘッダーのCSS */
+
 .main-bar {
   background-color: #FFFFFF;
   width: calc(100vw - 300px);
@@ -76,14 +81,140 @@
   padding: 20px;
 }
 
+/* メインヘッダーのCSS */
+/* メインボディのCSS */
+
 .managements {
   background-color: #FAFAFA;
   height: calc(100vh - 100px - 90px);
   padding: 46px 40px 0;
 }
 
+/* メインボディのCSS */
+/* メインフォームのCSS */
+
 .form {
   background-color: #DDDDDD;
   height: 90px;
   padding: 20px 40px;
 }
+
+/* メインフォームのCSS */
+/* 登録画面のCSS */
+
+.input-page .input-page__inner {
+  width: 980px;
+  margin: 60px auto;
+  padding: 60px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.input-page .input-page__inner .input-page__inner--left, .input-page .input-page__inner .input-page__inner--right {
+  float: left;
+  width: 50%;
+}
+.input-page .input-page__inner:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+.input-page .input-page__header h2 {
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  font-size: 40px;
+  font-weight: 200;
+}
+.input-page .input-page__header h2:after {
+  content: "";
+  display: block;
+  width: 60px;
+  margin-top: 5px;
+  border-bottom: 1px solid #38aef0;
+}
+.input-page .input-page__header h5 {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 200;
+}
+.input-page .input-page__header .btn {
+  margin-top: 20px;
+  color: #fff;
+  background-color: #ccc;
+  font-size: 14px;
+}
+.input-page .field {
+  margin-bottom: 10px;
+}
+.input-page .field .field-label {
+  padding: 10px 0;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: 200;
+}
+.input-page .field .field-label i {
+  font-size: 11px;
+}
+.input-page .field .field-input input {
+  width: 100%;
+  padding: 10px;
+  letter-spacing: 1px;
+}
+.input-page .btn {
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+}
+.input-page input[type=submit] {
+  float: left;
+  margin-top: 20px;
+  color: #fff;
+  background-color: #38aef0;
+}
+.input-page .field-label .field_with_errors {
+  display: inline-block;
+  color: #d65f4c;
+  font-weight: 400;
+}
+.input-page .field-input .field_with_errors {
+  position: relative;
+}
+.input-page .field-input .field_with_errors:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #d65f4c;
+}
+
+#error_explanation {
+  margin: 20px 0;
+  padding: 20px 30px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+#error_explanation h2 {
+  margin-bottom: 10px;
+  color: #d65f4c;
+  font-size: 14px;
+}
+#error_explanation ul {
+  margin: 0;
+  padding-left: 17px;
+  list-style: square;
+}
+#error_explanation li {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+/* 登録画面のCSS */

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       post :search
     end
   end
+  resources :managements, only: [:new, :create]
 end
