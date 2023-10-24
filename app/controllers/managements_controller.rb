@@ -20,6 +20,19 @@ class ManagementsController < ApplicationController
     end
   end
 
+  def edit
+    @management = Management.find(params[:id])
+  end
+  
+  def update
+    @management = Management.find(params[:id])
+    if management.update(management_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
   
   def management_params
