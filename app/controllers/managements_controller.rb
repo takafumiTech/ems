@@ -23,13 +23,26 @@ class ManagementsController < ApplicationController
   def edit
     @management = Management.find(params[:id])
   end
-  
+
   def update
     @management = Management.find(params[:id])
-    if management.update(management_params)
+    if @management.update(management_params)
       redirect_to root_path
     else
       render :edit
+    end
+  end
+
+  def purchase
+    @management = Management.find(params[:id])
+  end
+
+  def purchase_do
+    @management = Management.find(params[:id])
+    if @management.update(management_params)
+      redirect_to root_path
+    else
+      render :purchase
     end
   end
 

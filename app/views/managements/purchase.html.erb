@@ -1,0 +1,32 @@
+<div class='input-page' id='input-page'>
+  <div class='input-page__inner clearfix'>
+    <div class='input-page__inner--left input-page__header'>
+      <h2>Input Item Data</h2>
+      <h5>備品の情報を入力してください</h5>
+      <%= link_to "メインページに戻る", root_path, class: 'btn'%>
+    </div>
+    <div class='input-page__inner--right user-form'>
+      <%= form_with model: @management, local: true do |f|%>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :current_amount%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :current_amount, autofocus: true%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :created_at%>
+          </div>
+          <div class='field-input'>
+            <%= f.date_field :created_at%>
+          </div>
+        </div>
+        <div class='actions'>
+          <%= f.submit "update", class: 'btn'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

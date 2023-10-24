@@ -1,0 +1,80 @@
+<div class='input-page' id='input-page'>
+  <div class='input-page__inner clearfix'>
+    <div class='input-page__inner--left input-page__header'>
+      <h2>Input Item Data</h2>
+      <h5>備品の情報を入力してください</h5>
+      <%= link_to "メインページに戻る", root_path, class: 'btn'%>
+    </div>
+    <div class='input-page__inner--right user-form'>
+      <%= form_with model: @management, local: true do |f|%>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :item_name%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :item_name%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :unit%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :unit%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :lead_time%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :lead_time%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :current_amount%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :current_amount%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :spare%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :spare%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :consumption_by_delivery%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :consumption_by_delivery%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :consumption_by_repair%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :consumption_by_repair%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :consumption_by_exchange%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :consumption_by_exchange%>
+          </div>
+        </div>
+        <div class='actions'>
+          <%= f.submit "update", class: 'btn'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
