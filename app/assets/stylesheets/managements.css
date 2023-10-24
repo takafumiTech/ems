@@ -121,12 +121,23 @@
   text-align: right;
 }
 
-.purchase {
+.item-edit {
   font-size: 15px;
   text-align: center;
   width: 10%;
   padding: 5px;
   margin-left: 100px;
+  border: solid lightblue;
+  border-radius: 5px;
+  background-color: lightblue;
+}
+
+.purchase {
+  font-size: 15px;
+  text-align: center;
+  width: 10%;
+  padding: 5px;
+  margin-left: 10px;
   border: solid #38aef0;
   border-radius: 5px;
   background-color: #38aef0;

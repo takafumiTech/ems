@@ -7,5 +7,10 @@ Rails.application.routes.draw do
       post :search
     end
   end
-  resources :managements, only: [:index, :new, :create]
+  resources :managements, only: [:index, :new, :create, :edit, :update] do
+    member do
+      get  :purchase
+      post :purchase_do
+    end
+  end
 end
