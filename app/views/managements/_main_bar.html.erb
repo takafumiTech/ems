@@ -12,6 +12,19 @@
 </div>
 
 <div class="managements">
+  <% @managements.each do |data| %>
+    <div class="item-info">
+      <div class="name">
+        <%= data.item_name %>
+      </div>
+      <div class="date">      
+        <%= data.updated_at + (((data.current_amount - data.spare) / data.consumption_by_delivery) / @calculate - data.lead_time) * 86400 %>
+      </div>
+      <div class="purchase_amount">
+        <%= data.unit %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="form">

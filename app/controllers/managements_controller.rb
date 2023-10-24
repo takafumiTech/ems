@@ -1,5 +1,10 @@
 class ManagementsController < ApplicationController
   def index
+    @managements = Management.all
+    @daily_count = DailyCount.new
+    @daily_counts = DailyCount.order(date: :desc).limit(14)
+    @calculate = calculate
+    
   end
 
   def new
@@ -19,5 +24,13 @@ class ManagementsController < ApplicationController
   
   def management_params
     params.require(:management).permit(:item_name, :unit, :lead_time, :current_amount, :spare, :consumption_by_delivery, :consumption_by_repair, :consumption_by_exchange).merge(user_id: current_user.id)
+  end
+
+  def calculate
+    sum = 0
+    @daily_counts.each do |count|
+      sum += count.delivery_count
+    end
+    calculate = sum / 14
   end
 end
