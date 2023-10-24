@@ -90,6 +90,48 @@
   padding: 46px 40px 0;
 }
 
+.item-title {
+  height: 10%;
+  display: flex;
+  justify-content: first baseline;
+  align-items: center;
+  text-decoration: underline;
+}
+
+.item-info {
+  height: 10%;
+  display: flex;
+  justify-content: first baseline;
+  align-items: center;
+}
+
+.name {
+  font-size: 20px;
+  width: 30%;
+}
+
+.date {
+  font-size: 20px;
+  width: 20%;
+}
+
+.purchase-amount {
+  font-size: 20px;
+  width: 15%;
+  text-align: right;
+}
+
+.purchase {
+  font-size: 15px;
+  text-align: center;
+  width: 10%;
+  padding: 5px;
+  margin-left: 100px;
+  border: solid #38aef0;
+  border-radius: 5px;
+  background-color: #38aef0;
+}
+
 /* メインボディのCSS */
 /* メインフォームのCSS */
 

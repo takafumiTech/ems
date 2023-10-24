@@ -12,6 +12,34 @@
 </div>
 
 <div class="managements">
+    <div class="item-title">
+      <div class="name">
+      備品名  
+      </div>
+      <div class="date">      
+      購入日程（目安）
+      </div>
+      <div class="purchase-amount">
+      購入数
+      </div>
+    </div>
+  <% @managements.each do |data| %>
+    <div class="item-info">
+      <div class="name">
+        <%= data.item_name %>
+      </div>
+      <div class="date">      
+        <% purchase_date = (data.updated_at + (((data.current_amount - data.spare) / data.consumption_by_delivery) / @calculate - data.lead_time) * 86400) %>
+        <%= purchase_date.strftime("%Y/%m/%d") %>
+      </div>
+      <div class="purchase-amount">
+        <%= data.unit %>
+      </div>
+      <div class="purchase">
+        購入
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="form">
