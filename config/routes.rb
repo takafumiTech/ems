@@ -12,5 +12,8 @@ Rails.application.routes.draw do
       get  :purchase
       post :purchase_do
     end
+    collection do
+      get  :search
+    end
   end
 end

@@ -12,38 +12,44 @@
 </div>
 
 <div class="managements">
-    <div class="item-title">
-      <div class="name">
-      備品名  
-      </div>
-      <div class="date">      
-      購入日程（目安）
-      </div>
-      <div class="purchase-amount">
-      購入数
-      </div>
+  <div class="item-title">
+    <div class="name">
+    備品名  
     </div>
-  <% @managements.each do |data| %>
-    <div class="item-info">
-      <div class="name">
-        <%= data.item_name %>
-      </div>
-      <div class="date">      
-        <% purchase_date = (data.created_at + (((data.current_amount - data.spare) / data.consumption_by_delivery) / @calculate - data.lead_time) * 86400) %>
-        <%= purchase_date.strftime("%Y/%m/%d") %>
-      </div>
-      <div class="purchase-amount">
-        <%= data.unit %>
-      </div>
-      <div class="item-edit">
-        <%= link_to "編集", edit_management_path(data.id) %>
-      </div>
-      <div class="purchase">
-        <%= link_to "購入", purchase_management_path(data.id) %>
-      </div>
+    <div class="date">      
+    購入日程（目安）
     </div>
-  <% end %>
+    <div class="purchase-amount">
+    購入数
+    </div>
+  </div>
+  <div class="registered-items">
+    <% @managements.each do |data| %>
+      <div class="item-info">
+        <div class="name">
+          <%= data.item_name %>
+        </div>
+        <div class="date">      
+          <% purchase_date = (data.created_at + (((data.current_amount - data.spare) / data.consumption_by_delivery) / @calculate - data.lead_time) * 86400) %>
+          <%= purchase_date.strftime("%Y/%m/%d") %>
+        </div>
+        <div class="purchase-amount">
+          <%= data.unit %>
+        </div>
+        <div class="item-edit">
+          <%= link_to "編集", edit_management_path(data.id) %>
+        </div>
+        <div class="purchase">
+          <%= link_to "購入", purchase_management_path(data.id) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div class="form">
+  <%= form_with(url: search_managements_path, local: true, method: :get, class: "search-form") do |form| %>
+    <%= form.text_field :keyword, placeholder: "備品を検索する", class: "search-input" %>
+    <%= form.submit "検索", class: "search-btn" %>
+  <% end %>
 </div>

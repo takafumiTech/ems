@@ -46,6 +46,10 @@ class ManagementsController < ApplicationController
     end
   end
 
+  def search
+    @managements = SearchManagementsService.search(params[:keyword])
+  end
+
   private
   
   def management_params

@@ -1,0 +1,5 @@
+<div class="contents">
+  <% @managements.each do |management| %>
+    <% render partial: "managements/main_bar", locals: { main_bar: management } %>
+  <% end %>
+</div>

@@ -98,8 +98,14 @@
   text-decoration: underline;
 }
 
+.registered-items {
+  height: 90%;
+  overflow: scroll;
+}
+
 .item-info {
   height: 10%;
+  margin-top: 20px;
   display: flex;
   justify-content: first baseline;
   align-items: center;
