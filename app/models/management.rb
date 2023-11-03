@@ -10,7 +10,7 @@ class Management < ApplicationRecord
   end
 
   with_options presence: true do
-    validates :item_name
+    validates :item_name, uniqueness: { scope: :user }
     validates :consumption_by_delivery
     validates :consumption_by_repair
     validates :consumption_by_exchange  
