@@ -1,6 +1,14 @@
 class Management < ApplicationRecord
   belongs_to :user
 
+  def self.search(search)
+    if search != ""
+      Management.where('item_name LIKE(?)', "%#{search}%")
+    else
+      Management.all
+    end
+  end
+
   with_options presence: true do
     validates :item_name, uniqueness: true
     validates :consumption_by_delivery
@@ -13,14 +21,6 @@ class Management < ApplicationRecord
       validates :lead_time
       validates :current_amount
       validates :spare
-    end
-  end
-
-  def self.search(search)
-    if search != ""
-      Management.where('text LIKE(?)', "%#{search}%")
-    else
-      Management.all
     end
   end
 end

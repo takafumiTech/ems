@@ -1,5 +1,8 @@
-<div class="contents">
-  <% @managements.each do |management| %>
-    <% render partial: "managements/main_bar", locals: { main_bar: management } %>
-  <% end %>
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "side_bar" %>
+  </div>
+  <div class="main-bar">
+    <%= render partial: "main_bar", locals: { main_bar: @managements } %>
+  </div>
 </div>

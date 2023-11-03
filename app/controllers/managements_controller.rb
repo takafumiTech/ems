@@ -4,7 +4,13 @@ class ManagementsController < ApplicationController
     @daily_count = DailyCount.new
     @daily_counts = DailyCount.order(date: :desc).limit(14)
     @calculate = calculate
-    
+  end
+
+  def search
+    @managements = Management.search(params[:keyword])
+    @daily_count = DailyCount.new
+    @daily_counts = DailyCount.order(date: :desc).limit(14)
+    @calculate = calculate
   end
 
   def new
@@ -44,10 +50,6 @@ class ManagementsController < ApplicationController
     else
       render :purchase
     end
-  end
-
-  def search
-    @managements = SearchManagementsService.search(params[:keyword])
   end
 
   private
