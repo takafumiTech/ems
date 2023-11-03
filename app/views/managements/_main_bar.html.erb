@@ -5,9 +5,15 @@
     </div>
   </div>
   <div class="right-header">
+  <% unless current_page?(search_managements_path) %>
     <div class="header-button">
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
     </div>
+  <% else %>
+    <div class="header-button">
+      <%= link_to "一覧画面に戻る", root_path, class: 'btn'%>
+    </div>
+  <% end %>
   </div>
 </div>
 
@@ -50,10 +56,10 @@
     <% end %>
   </div>
   <div class="form">
-  <%= form_with(url: search_managements_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :keyword, placeholder: "備品を検索する", class: "search-input" %>
-    <%= form.submit "検索", class: "search-btn" %>
-  <% end %>
+    <%= form_with(url: search_managements_path, local: true, method: :get, class: "form-input") do |form| %>
+      <%= form.text_field :keyword, placeholder: "備品を検索する", class: "form-search" %>
+      <%= form.submit "検索", class: "form-submit" %>
+    <% end %>
   </div>
 </div>
 
