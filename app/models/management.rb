@@ -10,7 +10,7 @@ class Management < ApplicationRecord
   end
 
   with_options presence: true do
-    validates :item_name, uniqueness: true
+    validates :item_name
     validates :consumption_by_delivery
     validates :consumption_by_repair
     validates :consumption_by_exchange  

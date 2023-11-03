@@ -31,28 +31,30 @@
   </div>
   <div class="registered-items">
     <% @managements.each do |data| %>
-      <div class="item-info">
-        <div class="name">
-        <%= data.item_name %>
+      <% if current_user.id == data.user_id %>
+        <div class="item-info">
+          <div class="name">
+          <%= data.item_name %>
+          </div>
+          <div class="date">      
+            <% purchase_date = (data.created_at + (((data.current_amount - data.spare) / data.consumption_by_delivery) / @calculate - data.lead_time) * 86400) %>
+            <%= purchase_date.strftime("%Y/%m/%d") %>
+          </div>
+          <div class="purchase-amount">
+            <% if data.unit - data.spare > data.spare %>
+              <%= data.unit %>
+            <% else %>
+              <%= ((data.spare / data.unit).ceil) * data.unit %>
+            <% end %>
+          </div>
+          <div class="item-edit">
+            <%= link_to "編集", edit_management_path(data.id) %>
+          </div>
+          <div class="purchase">
+            <%= link_to "購入", purchase_management_path(data.id) %>
+          </div>
         </div>
-        <div class="date">      
-          <% purchase_date = (data.created_at + (((data.current_amount - data.spare) / data.consumption_by_delivery) / @calculate - data.lead_time) * 86400) %>
-          <%= purchase_date.strftime("%Y/%m/%d") %>
-        </div>
-        <div class="purchase-amount">
-          <% if data.unit - data.spare > data.spare %>
-            <%= data.unit %>
-          <% else %>
-            <%= ((data.spare / data.unit).ceil) * data.unit %>
-          <% end %>
-        </div>
-        <div class="item-edit">
-          <%= link_to "編集", edit_management_path(data.id) %>
-        </div>
-        <div class="purchase">
-          <%= link_to "購入", purchase_management_path(data.id) %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <div class="form">
