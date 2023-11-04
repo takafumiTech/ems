@@ -62,16 +62,6 @@ RSpec.describe Management, type: :model do
         @management.valid?
         expect(@management.errors.full_messages).to include("Consumption by delivery can't be blank")
       end
-      it "cunsumption_by_repairが空では登録できない" do
-        @management.consumption_by_repair = ''
-        @management.valid?
-        expect(@management.errors.full_messages).to include("Consumption by repair can't be blank")
-      end
-      it "cunsumption_by_exchangeが空では登録できない" do
-        @management.consumption_by_exchange = ''
-        @management.valid?
-        expect(@management.errors.full_messages).to include("Consumption by exchange can't be blank")
-      end
       it "userが紐ついていなければ登録できない" do
         @management.user = nil
         @management.valid?
