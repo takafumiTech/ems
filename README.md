@@ -14,15 +14,14 @@
 ### Association
 - has_many   :daily_counts
 - has_many   :managements
-- has_many   :tweets
-- has_many   :comments
+
 
 
 ## managementsテーブル
 
 | Column                  | Type       | Options               |
 | ----------------------- | ---------- | --------------------- |
-| item_name               | string     | Not null              |
+| item_name               | string     | Not null, unique      |
 | unit                    | integer    | Not null              |
 | lead_time               | integer    | Not null              |
 | current_amount          | integer    | Not null              |
@@ -40,7 +39,7 @@
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| date              | date       | Not null                       |
+| date              | date       | Not null, unique               |
 | delivery_count    | integer    | Not null                       |
 | repair_count      | integer    | Not null                       |
 | exchange_count    | integer    | Not null                       |
@@ -48,30 +47,3 @@
 
 ### Association
 - belongs_to :user
-
-
-## tweetsテーブル
-
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| item_name         | text       | Not null                       |
-| amount            | integer    | Not null                       |
-| deadline          | integer    | Not null                       |
-| user              | references | Not null                       |
-
-### Association
-- belongs_to :users
-- has_many   :comments
-
-
-## commentsテーブル
-
-| Column     | Type       | Options                        |
-| ------     | ---------- | ------------------------------ |
-| content    | text       | Not null                       |
-| tweet      | references | Not null, foreign_key          |
-| user       | references | Not null, foreign_key          |
-
-### Association
-- belongs_to :users
-- belongs_to :comments
