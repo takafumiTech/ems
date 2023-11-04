@@ -3,7 +3,7 @@ class ManagementsController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy, :purchase, :purchase_do]
 
   def index
-    @managements = Management.all
+    @managements = Management.order(:item_name)
     @daily_count = DailyCount.new
     @daily_counts = DailyCount.order(date: :desc).limit(14)
     @calculate = calculate
