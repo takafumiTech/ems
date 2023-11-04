@@ -1,10 +1,19 @@
 class ManagementsController < ApplicationController
+  before_action :same_sentence, except: [:index, :search, :new, :create]
+  before_action :move_to_index, only: [:edit, :destroy, :purchase, :purchase_do]
+
   def index
     @managements = Management.all
     @daily_count = DailyCount.new
     @daily_counts = DailyCount.order(date: :desc).limit(14)
     @calculate = calculate
-    
+  end
+
+  def search
+    @managements = Management.search(params[:keyword])
+    @daily_count = DailyCount.new
+    @daily_counts = DailyCount.order(date: :desc).limit(14)
+    @calculate = calculate
   end
 
   def new
@@ -21,11 +30,9 @@ class ManagementsController < ApplicationController
   end
 
   def edit
-    @management = Management.find(params[:id])
   end
 
   def update
-    @management = Management.find(params[:id])
     if @management.update(management_params)
       redirect_to root_path
     else
@@ -33,12 +40,18 @@ class ManagementsController < ApplicationController
     end
   end
 
+  def destroy
+    if @management.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   def purchase
-    @management = Management.find(params[:id])
   end
 
   def purchase_do
-    @management = Management.find(params[:id])
     if @management.update(management_params)
       redirect_to root_path
     else
@@ -47,6 +60,15 @@ class ManagementsController < ApplicationController
   end
 
   private
+
+  def same_sentence
+    @management = Management.find(params[:id])
+  end
+
+  def move_to_index
+    return if current_user.id == @management.user_id
+    redirect_to root_path
+  end
   
   def management_params
     params.require(:management).permit(:item_name, :unit, :lead_time, :current_amount, :spare, :consumption_by_delivery, :consumption_by_repair, :consumption_by_exchange).merge(user_id: current_user.id)
