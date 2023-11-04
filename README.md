@@ -28,8 +28,8 @@
 | current_amount          | integer    | Not null              |
 | spare                   | integer    | Not null              |
 | consumption_by_delivery | float      | Not null              |
-| consumption_by_repair   | float      | Not null              |
-| consumption_by_exchange | float      | Not null              |
+| consumption_by_repair   | float      |                       |
+| consumption_by_exchange | float      |                       |
 | user                    | references | Not null, foreign_key |
 
 ### Association

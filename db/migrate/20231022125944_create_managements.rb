@@ -7,8 +7,8 @@ class CreateManagements < ActiveRecord::Migration[6.0]
       t.integer    :current_amount,          null: false
       t.integer    :spare,                   null: false
       t.float      :consumption_by_delivery, null: false
-      t.float      :consumption_by_repair,   null: false
-      t.float      :consumption_by_exchange, null: false
+      t.float      :consumption_by_repair
+      t.float      :consumption_by_exchange
       t.references :user,                    null: false, foreign_key: true
       t.timestamps
     end

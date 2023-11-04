@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2023_10_22_125944) do
     t.integer "current_amount", null: false
     t.integer "spare", null: false
     t.float "consumption_by_delivery", null: false
-    t.float "consumption_by_repair", null: false
-    t.float "consumption_by_exchange", null: false
+    t.float "consumption_by_repair"
+    t.float "consumption_by_exchange"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
