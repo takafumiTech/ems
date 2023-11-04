@@ -121,6 +121,14 @@
   width: 20%;
 }
 
+.special-date {
+  font-size: 20px;
+  width: 20%;
+  padding-right: 30px;
+  text-decoration: solid underline red 4px;
+  font-weight: bold;
+}
+
 .purchase-amount {
   font-size: 20px;
   width: 15%;

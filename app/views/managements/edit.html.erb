@@ -3,6 +3,7 @@
     <div class='input-page__inner--left input-page__header'>
       <h2>Edit Item Data</h2>
       <h5>備品の情報を入力してください</h5>
+      <h5>更新する際は数量を最新の数にしてください</h5>
       <%= link_to "メインページに戻る", root_path, class: 'btn'%>
     </div>
     <div class='input-page__inner--right user-form'>
@@ -36,7 +37,7 @@
             <%= f.label :current_amount%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :current_amount%>
+            <%= f.text_field :current_amount %>
           </div>
         </div>
         <div class='field'>

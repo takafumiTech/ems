@@ -34,12 +34,19 @@
       <% if current_user.id == data.user_id %>
         <div class="item-info">
           <div class="name">
-          <%= data.item_name %>
+            <%= data.item_name %>
           </div>
-          <div class="date">      
-            <% purchase_date = (data.created_at + (((data.current_amount - data.spare) / data.consumption_by_delivery) / @calculate - data.lead_time) * 86400) %>
-            <%= purchase_date.strftime("%Y/%m/%d") %>
-          </div>
+          <% purchase_date = (data.updated_at + (((data.current_amount - data.spare) / data.consumption_by_delivery) / @calculate - data.lead_time) * 86400).strftime("%Y/%m/%d") %>
+          <% today = Date.today.strftime("%Y/%m/%d") %>
+          <% if (Date.parse(purchase_date) - Date.parse(today)) > 7 %>
+            <div class="date">      
+              <%= purchase_date %>
+            </div>
+          <% else %>
+            <div class="special-date">      
+              <%= purchase_date %>
+            </div>
+          <% end %>
           <div class="purchase-amount">
             <% if data.unit - data.spare > data.spare %>
               <%= data.unit %>
