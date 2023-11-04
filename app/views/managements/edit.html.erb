@@ -74,6 +74,9 @@
         <div class='actions'>
           <%= f.submit "update", class: 'btn'%>
         </div>
+        <div class='delete'>
+          <%= link_to "Delete", management_path(@management.id), method: :delete %>
+        </div>
       <% end %>
     </div>
   </div>

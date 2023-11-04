@@ -1,6 +1,6 @@
 class ManagementsController < ApplicationController
   before_action :same_sentence, except: [:index, :search, :new, :create]
-  before_action :move_to_index, only: [:edit, :purchase, :purchase_do]
+  before_action :move_to_index, only: [:edit, :destroy, :purchase, :purchase_do]
 
   def index
     @managements = Management.all
@@ -34,6 +34,14 @@ class ManagementsController < ApplicationController
 
   def update
     if @management.update(management_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @management.destroy
       redirect_to root_path
     else
       render :edit

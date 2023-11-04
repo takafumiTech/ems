@@ -4,12 +4,13 @@ class DailyCountsController < ApplicationController
 
   def index
     @daily_counts = DailyCount.all
-    @daily_count = DailyCount.order(date: :desc).limit(1)
+    @daily_count = DailyCount.order(date: :desc).limit(2)
   end
 
   def search
     @daily_counts = DailyCount.all
     @daily_count = DailyCount.new(daily_count_params)
+    
     if @daily_count.date.present?
       @daily_count = DailyCount.where('date = ?', "#{@daily_count.date}")
     else

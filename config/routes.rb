@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post :search
     end
   end
-  resources :managements, except: [:show, :destroy] do
+  resources :managements, except: [:show] do
     member do
       get  :purchase
       post :purchase_do

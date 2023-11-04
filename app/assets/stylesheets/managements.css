@@ -248,6 +248,20 @@
   border: none;
   border-radius: 2px;
 }
+.delete{
+  display: inline-block;
+  height: 50px;
+  width: 120px;
+  margin: 20px 0 0 30px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  background-color: #38AEF0;
+  color: #ccc;
+}
 .input-page input[type=submit] {
   float: left;
   margin-top: 20px;
