@@ -1,7 +1,7 @@
 <div class="main-header">
   <div class="left-header">
     <div class="header-title">
-      Equipment Management System
+      備品管理システム
     </div>
   </div>
   <div class="right-header">
@@ -48,10 +48,10 @@
             </div>
           <% end %>
           <div class="purchase-amount">
-            <% if data.unit - data.spare > data.spare %>
+            <% if data.unit - data.spare >= data.spare %>
               <%= data.unit %>
             <% else %>
-              <%= ((data.spare / data.unit).ceil) * data.unit %>
+              <%= ((data.spare / data.unit).ceil) %>
             <% end %>
           </div>
           <div class="item-edit">

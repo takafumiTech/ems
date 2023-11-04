@@ -10,13 +10,13 @@ class DailyCountsController < ApplicationController
   def search
     @daily_counts = DailyCount.all
     @daily_count = DailyCount.new(daily_count_params)
-    
-    if @daily_count.date.present?
-      @daily_count = DailyCount.where('date = ?', "#{@daily_count.date}")
-    else
-      @daily_count = DailyCount.none
-    end
-      render :index
+
+    @daily_count = if @daily_count.date.present?
+                     DailyCount.where('date = ?', "#{@daily_count.date}")
+                   else
+                     DailyCount.none
+                   end
+    render :index
   end
 
   def new
@@ -51,6 +51,7 @@ class DailyCountsController < ApplicationController
 
   def move_to_index
     return if current_user.id == @daily_count.user_id
+
     redirect_to root_path
   end
 

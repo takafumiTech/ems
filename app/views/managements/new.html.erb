@@ -1,7 +1,7 @@
 <div class='input-page' id='input-page'>
   <div class='input-page__inner clearfix'>
     <div class='input-page__inner--left input-page__header'>
-      <h2>Input Item Data</h2>
+      <h2>備品情報登録</h2>
       <h5>備品の情報を入力してください</h5>
       <%= link_to "メインページに戻る", root_path, class: 'btn'%>
     </div>
@@ -9,7 +9,7 @@
       <%= form_with model: @management, local: true do |f|%>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :item_name%>
+            <%= f.label :"備品名"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :item_name%>
@@ -17,7 +17,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :unit%>
+            <%= f.label :"発注単位"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :unit%>
@@ -25,7 +25,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :lead_time%>
+            <%= f.label :"リードタイム"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :lead_time%>
@@ -33,7 +33,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :current_amount%>
+            <%= f.label :"現在の数量"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :current_amount%>
@@ -41,7 +41,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :spare%>
+            <%= f.label :"予備保管数量"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :spare%>
@@ -49,7 +49,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :consumption_by_delivery%>
+            <%= f.label :"1件配達あたり消費数量"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :consumption_by_delivery%>
@@ -57,22 +57,22 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :consumption_by_repair%>
+            <%= f.label :"1件修理あたり消費数量"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :consumption_by_repair%>
+            <%= f.text_field :consumption_by_repair, placeholder: "計算精度向上のため今後実装予定"%>
           </div>
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :consumption_by_exchange%>
+            <%= f.label :"1件再入庫あたり消費数量"%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :consumption_by_exchange%>
+            <%= f.text_field :consumption_by_exchange, placeholder: "計算精度向上のため今後実装予定"%>
           </div>
         </div>
         <div class='actions'>
-          <%= f.submit "submit", class: 'btn'%>
+          <%= f.submit "登録", class: 'btn'%>
         </div>
       <% end %>
     </div>
