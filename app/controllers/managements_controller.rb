@@ -24,7 +24,7 @@ class ManagementsController < ApplicationController
     if @management.save
       redirect_to root_path
     else
-      render:new
+      render :new
     end
   end
 
@@ -66,11 +66,13 @@ class ManagementsController < ApplicationController
 
   def move_to_index
     return if current_user.id == @management.user_id
+
     redirect_to root_path
   end
-  
+
   def management_params
-    params.require(:management).permit(:item_name, :unit, :lead_time, :current_amount, :spare, :consumption_by_delivery, :consumption_by_repair, :consumption_by_exchange).merge(user_id: current_user.id)
+    params.require(:management).permit(:item_name, :unit, :lead_time, :current_amount, :spare, :consumption_by_delivery,
+                                       :consumption_by_repair, :consumption_by_exchange).merge(user_id: current_user.id)
   end
 
   def calculate

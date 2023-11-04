@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def move_to_index
     @user = User.find(params[:id])
     return if current_user.id == @user.id
+
     redirect_to root_path
   end
 
