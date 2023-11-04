@@ -1,15 +1,15 @@
 <div class='account-page' id='account-page'>
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
-      <h2>Create Account</h2>
-      <h5>新規アカウントの作成</h5>
+      <h2>アカウント作成</h2>
+      <h5>新規アカウントを作成してください</h5>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :center_code%>
+            <%= f.label :"拠点コード"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :center_code, autofocus: true, placeholder: "半角数字4桁" %>
@@ -17,7 +17,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :center_name%>
+            <%= f.label :"拠点名"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :center_name%>
@@ -25,7 +25,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :email%>
+            <%= f.label :"メールアドレス"%>
           </div>
           <div class='field-input'>
             <%= f.email_field :email%>
@@ -33,7 +33,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :password%>
+            <%= f.label :"パスワード"%>
             <i>(英数字6文字以上)</i>
           </div>
           <div class='field-input'>
@@ -42,7 +42,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :password_confirmation%>
+            <%= f.label :"パスワードの確認"%>
           </div>
           <div class='field-input'>
             <%= f.password_field :password_confirmation, autocomplete: "off"%>
@@ -50,7 +50,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :yearly_delivery%>
+            <%= f.label :"年間配達件数"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :yearly_delivery%>
@@ -58,14 +58,14 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :consumption_type_id%>
+            <%= f.label :"拠点形態"%>
           </div>
           <div class='field-input'>
             <%= f.collection_select(:consumption_type_id, ConsumptionType.all, :id, :name, {}, {class:"consumptiontype-select"})%>
           </div>
         </div>
         <div class='actions'>
-          <%= f.submit "Create Account", class: 'btn'%>
+          <%= f.submit "アカウント登録", class: 'btn'%>
         </div>
       </div>
     <% end %>

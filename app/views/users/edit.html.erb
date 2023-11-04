@@ -1,8 +1,8 @@
 <div class='account-page' id='account-page'>
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
-      <h2>Edit Infomation</h2>
-      <h5>拠点情報の編集</h5>
+      <h2>拠点情報変更</h2>
+      <h5>拠点情報を変更してください</h5>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
       <%= link_to "メインページに戻る", root_path, class: 'btn'%>
     </div>
@@ -10,7 +10,7 @@
       <%= form_with model: current_user, local: true do |f|%>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :center_code%>
+            <%= f.label :"拠点コード"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :center_code, autofocus: true, placeholder: "半角数字4桁" %>
@@ -18,7 +18,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :center_name%>
+            <%= f.label :拠点名%>
           </div>
           <div class='field-input'>
             <%= f.text_field :center_name%>
@@ -26,7 +26,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :email%>
+            <%= f.label :メールアドレス%>
           </div>
           <div class='field-input'>
             <%= f.email_field :email%>
@@ -34,7 +34,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :yearly_delivery%>
+            <%= f.label :年間配達件数%>
           </div>
           <div class='field-input'>
             <%= f.text_field :yearly_delivery%>
@@ -42,7 +42,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :consumption_type_id%>
+            <%= f.label :拠点形態%>
           </div>
           <div class='field-input'>
             <%= f.collection_select(:consumption_type_id, ConsumptionType.all, :id, :name, {}, {class:"consumptiontype-select"})%>

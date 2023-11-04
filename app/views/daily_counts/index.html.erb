@@ -1,7 +1,7 @@
 <div class='input-page' id='input-page'>
   <div class='input-page__inner clearfix'>
     <div class='input-page__inner--left input-page__header'>
-      <h2>Daily Data</h2>
+      <h2>件数情報確認</h2>
       <h5>確認したい日付を選択してください</h5>
       <%= form_tag(search_daily_counts_path, method: :post) do %>
         <div class='search'>
@@ -23,7 +23,7 @@
           <% if current_user.id == data.user_id %>
             <div class='data'>
               <div class='index-label'>
-                Date
+                日付
               </div>
               <div class='index-input'>
                 <%= data.date%>
@@ -31,7 +31,7 @@
             </div>
             <div class='data'>
               <div class='index-label'>
-                Delivery_count
+                配達件数
               </div>
               <div class='index-input'>
                 <%= data.delivery_count%>
@@ -39,7 +39,7 @@
             </div>
             <div class='data'>
               <div class='index-label'>
-                Repair_count
+                修理件数
               </div>
               <div class='index-input'>
                 <%= data.repair_count%>
@@ -47,7 +47,7 @@
             </div>
             <div class='data'>
               <div class='index-label'>
-                Exchange_count
+                際入庫件数
               </div>
               <div class='index-input'>
                 <%= data.exchange_count%>
