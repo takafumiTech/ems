@@ -4,7 +4,6 @@ class ManagementsController < ApplicationController
 
   def index
     @managements = Management.order(:item_name)
-    @daily_count = DailyCount.new
     @daily_counts = DailyCount.order(date: :desc).limit(14)
     @calculate = calculate
   end
