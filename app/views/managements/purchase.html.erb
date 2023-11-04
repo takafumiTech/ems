@@ -3,7 +3,7 @@
     <div class='input-page__inner--left input-page__header'>
       <h2>購入情報の更新</h2>
       <h5>備品の購入情報を入力してください</h5>
-      <%= link_to "メインページに戻る", root_path, class: 'btn'%>
+      <%= link_to "メインページに戻る", :back, class: 'btn'%>
     </div>
     <div class='input-page__inner--right user-form'>
       <%= form_with model: @management, local: true do |f|%>
