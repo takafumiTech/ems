@@ -4,7 +4,7 @@ class DailyCountsController < ApplicationController
 
   def index
     @daily_counts = DailyCount.all
-    @daily_count = DailyCount.order(date: :desc).limit(2)
+    @daily_count = DailyCount.order(date: :desc).limit(1)
   end
 
   def search
